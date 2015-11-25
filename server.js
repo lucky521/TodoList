@@ -17,7 +17,7 @@ app.locals.dbType = dbType;
 var client = null;
 if(config.env == "development") {
   console.log("development env");
-  client = redis.createClient();
+  client = redis.createClient(config.redis_port, config.redis_host);
 }
 
 app.set('view engine', 'ejs');
@@ -39,6 +39,7 @@ var json = function(res, data) {
 
   res.end();
 };
+
 // get a random id
 function guid() {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
