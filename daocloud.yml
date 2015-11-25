@@ -1,6 +1,7 @@
 image: daocloud.io/luckykindle/todolist
 services:
     - redis
+    - node.js
 
 env:
     - MYENV = "hello"
