@@ -1,4 +1,4 @@
-mage: daocloud.io/luckykindle/todolist
+image: daocloud.io/luckykindle/todolist
 services:
     - redis
     - node
