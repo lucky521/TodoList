@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM node
 MAINTAINER Lucky <lu.dev@outlook.com>
 
 #RUN apt-get install python-software-properties
