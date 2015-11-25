@@ -10,3 +10,4 @@ MAINTAINER Lucky <lu.dev@outlook.com>
 
 CMD ["/usr/bin/node", "server.js"] 
 
+EXPOSE 3000
