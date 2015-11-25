@@ -8,6 +8,6 @@ MAINTAINER Lucky <lu.dev@outlook.com>
 #RUN apt-get install -y nodejs
 #RUN apt-get install -y redis-server
 
-CMD ["/usr/bin/node", "server.js"] 
+CMD ["node", "server.js"] 
 
 EXPOSE 3000
