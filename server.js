@@ -18,6 +18,7 @@ var client = null;
 if(config.env == "development") {
   console.log("development env");
   client = redis.createClient(config.redis_port, config.redis_host);
+  //client.auth("");
 }
 
 app.set('view engine', 'ejs');
