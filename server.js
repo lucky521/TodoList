@@ -4,7 +4,7 @@ var app = express();
 var server = require('http').createServer(app);
 var cookieParser = require('cookie-parser');
 var session = require('cookie-session');
-var config = require('./lib/config');
+var config = require('./lib/config');// run my config module
 var redis = require("redis");
 var connect = require('connect');
 var methodOverride = require('method-override');
@@ -13,18 +13,16 @@ var bodyParser = require('body-parser');
 // backend database
 var dbType = config.dbType;
 app.locals.dbType = dbType;
+// show current env
+console.log(config.env);
 // db client 
 var client = null;
-if(config.env == "development") {
-  console.log("development env");
-  client = redis.createClient(config.redis_port, config.redis_host);
-  //client.auth("");
-}
+client = redis.createClient(config.redis_port, config.redis_host);
+client.auth(config.redis_auth);
 
 app.set('view engine', 'ejs');
 app.set('view options', { layout: false });
 app.use('/public', express.static('public'));
-
 app.use(methodOverride());
 app.use(bodyParser());
 app.use(cookieParser());
@@ -34,10 +32,10 @@ app.use(session({secret: guid()}));
 var json = function(res, data) {
   res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
 
-  if(typeof data === "string") res.write(data);
-
-  else res.write(JSON.stringify(data));
-
+  if(typeof data === "string") 
+	  res.write(data);
+  else 
+	  res.write(JSON.stringify(data));
   res.end();
 };
 

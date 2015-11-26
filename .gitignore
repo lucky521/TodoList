@@ -19,3 +19,6 @@ npm-debug.log
 node_modules
 .sass-cache
 .idea/
+
+
+test_docker_env.sh
