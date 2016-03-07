@@ -1,12 +1,15 @@
 # TodoList
 Based on **node.js** and **redis**, Running on China Docker **Daocloud**.
 
-
-[Online ](https://luckykindle-lu-todolist.daoapp.io/)
-
+[Demo Online](https://luckykindle-lu-todolist.daoapp.io/)
 
 
-## Local Environment
+
+## 部署到本地
+
+```
+$ node server.js
+```
 
 /config/development.json 
 
@@ -18,8 +21,13 @@ Based on **node.js** and **redis**, Running on China Docker **Daocloud**.
       "redis_auth": "lucky"
     }
   
-## Docker Environment
+## 部署到Docker
 
+- 编写dockerfile
+- 制作镜像
+- 将镜像部署成容器
+
+### 环境变量
     - DOCKER_ENV=daocloud
     - port=3000
     - dbType=redis
